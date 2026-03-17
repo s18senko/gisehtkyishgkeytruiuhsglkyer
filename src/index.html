@@ -3,37 +3,49 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AMLBot — Проверка кошельков</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>AMLBot — Crypto AML Checks</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600&display=swap');
-    body { font-family: 'Inter', sans-serif; background: #f8fafc; }
-    .logo-font { font-family: 'Space Grotesk', sans-serif; }
-    .hero-bg { background: linear-gradient(135deg, #0f172a 0%, #1e2937 100%); }
-  </style>
+  <link rel="stylesheet" href="css/index.css?v=1"/>
 </head>
-<body class="min-h-screen bg-zinc-50 text-zinc-900">
+<body>
+  <header class="topbar">
+    <a class="logo" href="index.html"><i class="fa-solid fa-shield"></i> AMLBot</a>
+    <nav>
+      <a href="check.html">Wallet Check</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
 
-  <nav class="bg-white border-b shadow-sm sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-16">
-      <span class="logo-font text-3xl font-bold text-blue-600">AMLBot</span>
+  <main class="hero">
+    <p class="tag">Crypto Compliance Platform</p>
+    <h1>Blockchain AML screening for modern teams</h1>
+    <p class="sub">Проверка рисков кошельков и транзакций. Поддержка TRON (TRX / USDT TRC-20) и быстрый отчёт для бизнеса.</p>
+    <div class="cta-row">
+      <a class="btn primary" href="check.html">Запустить проверку</a>
+      <a class="btn ghost" href="pricing.html">Тарифы</a>
     </div>
-  </nav>
+  </main>
 
-  <div class="max-w-5xl mx-auto px-6 py-24 text-center">
-    <h1 class="text-5xl md:text-6xl font-bold mb-6">
-      Проверка кошелька Tron
-    </h1>
-    <p class="text-xl md:text-2xl text-zinc-600 mb-12">
-      Баланс TRX и USDT (TRC-20) + отчёт о безопасности
-    </p>
-
-    <a href="check.html" 
-       class="inline-block bg-blue-600 text-white px-12 py-6 rounded-xl text-2xl font-bold hover:bg-blue-700 transition shadow-xl">
-      Начать проверку
-    </a>
-  </div>
-
+  <section class="features">
+    <article>
+      <i class="fa-solid fa-bolt"></i>
+      <h3>Fast checks</h3>
+      <p>Мгновенная проверка адреса и получение итогового risk-score.</p>
+    </article>
+    <article>
+      <i class="fa-solid fa-diagram-project"></i>
+      <h3>Visual reports</h3>
+      <p>Удобная структура результата для внутреннего комплаенса.</p>
+    </article>
+    <article>
+      <i class="fa-solid fa-lock"></i>
+      <h3>Enterprise-ready</h3>
+      <p>Подходит для exchange, fintech и payment-инфраструктуры.</p>
+    </article>
+  </section>
 </body>
 </html>

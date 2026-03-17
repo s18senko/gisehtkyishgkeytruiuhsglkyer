@@ -1,0 +1,13 @@
+:root{--bg:#070b18;--panel:#121a38cc;--line:#283463;--txt:#edf2ff;--muted:#9dadde;--blue:#6b7dff;--green:#44d09c}
+*{box-sizing:border-box}body{margin:0;min-height:100dvh;font-family:Inter,sans-serif;color:var(--txt);background:radial-gradient(900px 400px at 20% 0%,#1b2b67 0,transparent 70%),var(--bg)}
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;border-bottom:1px solid #1f2a53;background:#070b17cc;position:sticky;top:0;backdrop-filter:blur(8px)}
+.logo{color:#fff;text-decoration:none;font-weight:800;display:flex;gap:8px;align-items:center}.topbar nav a{color:var(--muted);text-decoration:none;margin-left:16px;font-weight:600}
+.container{max-width:920px;margin:0 auto;padding:16px}.hero-card,.result-card{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:0 24px 60px #02040f66}
+.hero-card h1{font-size:clamp(1.5rem,4.8vw,2.4rem);margin:10px 0}.chip{display:inline-block;background:#25326a66;border:1px solid #415197;padding:6px 10px;border-radius:999px;color:#bfcaef;font-size:.82rem}.subtitle,.hint,.check-time{color:var(--muted);line-height:1.55}
+.connect-btn{width:100%;margin-top:16px;border:0;min-height:58px;border-radius:14px;background:linear-gradient(135deg,#6f80ff,#4f46e5);color:#fff;font-weight:800;display:flex;gap:10px;justify-content:center;align-items:center;cursor:pointer}.connect-btn:disabled{opacity:.7;cursor:not-allowed}
+.hidden{display:none}.result-card{margin-top:12px}.score-wrap{text-align:center}.score-value{font-size:clamp(2.2rem,13vw,4.8rem);font-weight:800;color:var(--green);line-height:1}.score-label{color:var(--muted)}.score-text{font-weight:700}
+.wallet-box{margin-top:16px;padding:14px;border-radius:14px;border:1px solid #3c4d8b;background:#0a1230aa}.wallet-title{color:var(--muted);font-size:.85rem;margin:0 0 6px}.wallet-address{margin:0;word-break:break-all}
+.balances-grid{margin-top:14px;display:grid;grid-template-columns:1fr;gap:10px}.balance-item{padding:14px;border-radius:14px;background:#090f28c2;border:1px solid #2c3864}.balance-name{margin:0;color:var(--muted);font-size:.9rem}.balance-value{margin:8px 0 0;font-size:clamp(1.2rem,4vw,1.7rem);font-weight:800}.trx .balance-value{color:#ffb54e}.usdt .balance-value{color:#44d09c}
+.check-time{text-align:center;margin-top:12px;font-size:.86rem}
+@media (max-width:700px){.topbar nav a{margin-left:10px;font-size:.9rem}}
+@media (min-width:760px){.container{padding:24px}.hero-card,.result-card{padding:28px}.balances-grid{grid-template-columns:1fr 1fr}}

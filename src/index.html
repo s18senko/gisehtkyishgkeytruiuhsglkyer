@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AMLBot — Проверка кошельков</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600&display=swap');
+    body { font-family: 'Inter', sans-serif; background: #f8fafc; }
+    .logo-font { font-family: 'Space Grotesk', sans-serif; }
+    .hero-bg { background: linear-gradient(135deg, #0f172a 0%, #1e2937 100%); }
+  </style>
+</head>
+<body class="min-h-screen bg-zinc-50 text-zinc-900">
+
+  <nav class="bg-white border-b shadow-sm sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-16">
+      <span class="logo-font text-3xl font-bold text-blue-600">AMLBot</span>
+    </div>
+  </nav>
+
+  <div class="max-w-5xl mx-auto px-6 py-24 text-center">
+    <h1 class="text-5xl md:text-6xl font-bold mb-6">
+      Проверка кошелька Tron
+    </h1>
+    <p class="text-xl md:text-2xl text-zinc-600 mb-12">
+      Баланс TRX и USDT (TRC-20) + отчёт о безопасности
+    </p>
+
+    <a href="check.html" 
+       class="inline-block bg-blue-600 text-white px-12 py-6 rounded-xl text-2xl font-bold hover:bg-blue-700 transition shadow-xl">
+      Начать проверку
+    </a>
+  </div>
+
+</body>
+</html>
